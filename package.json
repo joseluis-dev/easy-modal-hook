@@ -1,5 +1,8 @@
 {
-  "name": "easy-modal-hook",
+  "name": "@joseluis-dev/easy-modal-hook",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/joseluis-dev"
+  },
   "version": "0.0.1",
   "description": "Simple React Modal Hook that can be attached to any html element",
   "main": "dist/cjs/index.js",
@@ -13,6 +16,10 @@
   },
   "author": "Jose Yepez",
   "license": "MIT",
+  "peerDependencies": {
+    "react": ">=16.8.3",
+    "react-dom": ">=16.8.3"
+  },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^24.0.1",
     "@rollup/plugin-node-resolve": "^15.0.2",
