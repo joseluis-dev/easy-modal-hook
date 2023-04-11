@@ -27,7 +27,7 @@
 
 ## Quick Start
 
-**Instal from:**
+**Install from:**
 ```cmd
 npm install easy-modal-hook
 ```
