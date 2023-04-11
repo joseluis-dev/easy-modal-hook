@@ -1,11 +1,21 @@
 {
   "name": "easy-modal-hook",
-  "version": "0.0.3",
+  "version": "0.0.4",
+  "repository": {
+    "url": "https://github.com/joseluis-dev/easy-modal-hook.git"
+  },
+  "homepage": "https://github.com/joseluis-dev/easy-modal-hook.git",
   "description": "Simple React Modal Hook that can be attached to any html element",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "files": [
     "dist"
+  ],
+  "keywords": [
+    "React",
+    "Hook",
+    "Modal",
+    "Portal"
   ],
   "types": "dist/index.d.ts",
   "scripts": {

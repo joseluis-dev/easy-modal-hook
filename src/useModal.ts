@@ -1,15 +1,26 @@
-import { ReactPortal, useState } from 'react'
+import { ReactNode, ReactPortal, useState } from 'react'
 import ModalFactory from './ModalFactory'
-import { ModalContentPropsType } from './ModalContent'
 
 interface UseModalType {
   isShown: boolean
-  Modal: ({ children, close }: ModalContentPropsType) => ReactPortal | null
+  Modal: ({ children }: ModalPortalProps) => ReactPortal | null
   open: () => void
   close: () => void
 }
 
-export const useModal = ({ root = 'modal-root' } = {}): UseModalType => {
+interface UseModalPropsType {
+  root?: string
+  closeIcon?: ReactNode
+}
+
+interface ModalPortalProps {
+  children: JSX.Element
+}
+
+export const useModal = ({ 
+  root = 'modal-root',
+  closeIcon
+}: UseModalPropsType = {}): UseModalType => {
   const [show, setShow] = useState(false)
 
   const open = (): void => {
@@ -20,7 +31,7 @@ export const useModal = ({ root = 'modal-root' } = {}): UseModalType => {
     setShow(false)
   }
 
-  const Modal = ModalFactory({ show, close, root })
+  const Modal = ModalFactory({ show, close, root, closeIcon })
 
   return {
     isShown: show,

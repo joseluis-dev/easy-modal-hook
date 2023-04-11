@@ -1,17 +1,22 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
 export interface ModalContentPropsType {
   children: JSX.Element
   close: () => void
+  closeIcon?: ReactNode
 }
 
-const ModalContent = ({ children, close }: ModalContentPropsType): JSX.Element => {
+const ModalContent = ({ children, close, closeIcon }: ModalContentPropsType): JSX.Element => {
   return (
     <div onClick={(e) => { e.stopPropagation() }}>
       <div>
-        <button onClick={close}>
-          Close
-        </button>
+        {Boolean(closeIcon)
+          ? <button onClick={close}>
+              {closeIcon}
+            </button>
+          : <button onClick={close}>
+              Close
+            </button>}
         {children}
       </div>
     </div>
