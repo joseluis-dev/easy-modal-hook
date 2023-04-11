@@ -31,7 +31,7 @@
 ```cmd
 npm install easy-modal-hook
 ```
-**Use example:**
+**Usage example:**
 ```js
 import { useModal } from 'easy-modal-hook'
 
