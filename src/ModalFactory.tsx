@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import ModalContent from './ModalContent'
 
 interface ModalFactoryPropsType {
-  close: () => void
+  closeModal: () => void
   show: boolean
   root: string
   closeIcon?: ReactNode
@@ -13,11 +13,11 @@ interface ModalPortalProps {
   children: JSX.Element
 }
 
-const ModalFactory = ({ close, show, root, closeIcon }: ModalFactoryPropsType) => ({ children }: ModalPortalProps): ReactPortal | null => {
+const ModalFactory = ({ closeModal, show, root, closeIcon }: ModalFactoryPropsType) => ({ children }: ModalPortalProps): ReactPortal | null => {
   return (
     show
       ? ReactDOM.createPortal(
-        <ModalContent close={close} closeIcon={closeIcon}>
+        <ModalContent closeModal={closeModal} closeIcon={closeIcon}>
           {children}
         </ModalContent>,
         document.getElementById(root) as Element | DocumentFragment ?? document.body

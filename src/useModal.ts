@@ -4,8 +4,8 @@ import ModalFactory from './ModalFactory'
 interface UseModalType {
   isShown: boolean
   Modal: ({ children }: ModalPortalProps) => ReactPortal | null
-  open: () => void
-  close: () => void
+  openModal: () => void
+  closeModal: () => void
 }
 
 interface UseModalPropsType {
@@ -23,20 +23,20 @@ export const useModal = ({
 }: UseModalPropsType = {}): UseModalType => {
   const [show, setShow] = useState(false)
 
-  const open = (): void => {
+  const openModal = (): void => {
     setShow(true)
   }
 
-  const close = (): void => {
+  const closeModal = (): void => {
     setShow(false)
   }
 
-  const Modal = ModalFactory({ show, close, root, closeIcon })
+  const Modal = ModalFactory({ show, closeModal, root, closeIcon })
 
   return {
     isShown: show,
     Modal,
-    open,
-    close
+    openModal,
+    closeModal
   }
 }

@@ -16,13 +16,13 @@ export const SvgClose = (props: any): JSX.Element => (
 )
 
 function App(): JSX.Element {
-  const { Modal, open } = useModal({
+  const { Modal, openModal } = useModal({
     closeIcon: <SvgClose />
   })
 
   return (
     <div>
-      <button onClick={open}>Open</button>
+      <button onClick={openModal}>Open</button>
       <Modal>
         <>Hello World!</>
       </Modal>
