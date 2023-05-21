@@ -6,9 +6,9 @@ export interface ModalContentPropsType {
   closeIcon?: ReactNode
 }
 
-const ModalContent = ({ children, closeModal, closeIcon }: ModalContentPropsType): JSX.Element => {
+const ModalContent = ({ children, closeModal, closeIcon, ...props }: ModalContentPropsType): JSX.Element => {
   return (
-    <>
+    <div {...props}>
       {Boolean(closeIcon)
         ? <button onClick={closeModal}>
             {closeIcon}
@@ -17,7 +17,7 @@ const ModalContent = ({ children, closeModal, closeIcon }: ModalContentPropsType
             Close
           </button>}
       {children}
-    </>
+    </div>
   )
 }
 

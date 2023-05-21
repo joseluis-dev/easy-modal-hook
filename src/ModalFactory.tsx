@@ -13,11 +13,11 @@ interface ModalPortalProps {
   children: JSX.Element
 }
 
-const ModalFactory = ({ closeModal, show, root, closeIcon }: ModalFactoryPropsType) => ({ children }: ModalPortalProps): ReactPortal | null => {
+const ModalFactory = ({ closeModal, show, root, closeIcon }: ModalFactoryPropsType) => ({ children, ...props }: ModalPortalProps): ReactPortal | null => {
   return (
     show
       ? ReactDOM.createPortal(
-        <ModalContent closeModal={closeModal} closeIcon={closeIcon}>
+        <ModalContent {...props} closeModal={closeModal} closeIcon={closeIcon}>
           {children}
         </ModalContent>,
         document.getElementById(root) as Element | DocumentFragment ?? document.body
