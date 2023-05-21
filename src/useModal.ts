@@ -3,7 +3,7 @@ import ModalFactory from './ModalFactory'
 
 interface UseModalType {
   isShown: boolean
-  Modal: ({ children }: ModalPortalProps) => ReactPortal | null
+  Modal: ({ children, className }: ModalPortalProps) => ReactPortal | null
   openModal: () => void
   closeModal: () => void
 }
@@ -15,6 +15,7 @@ interface UseModalPropsType {
 
 interface ModalPortalProps {
   children: JSX.Element
+  className?: string
 }
 
 export const useModal = ({ 

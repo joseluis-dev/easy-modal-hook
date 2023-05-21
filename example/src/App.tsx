@@ -23,7 +23,7 @@ function App(): JSX.Element {
   return (
     <div>
       <button onClick={openModal}>Open</button>
-      <Modal>
+      <Modal className='modal-class'>
         <>Hello World!</>
       </Modal>
     </div>

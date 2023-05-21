@@ -1,4 +1,4 @@
-import React, { ReactNode, ReactPortal } from 'react'
+import React, { HTMLAttributes, ReactNode, ReactPortal } from 'react'
 import ReactDOM from 'react-dom'
 import ModalContent from './ModalContent'
 
@@ -11,13 +11,14 @@ interface ModalFactoryPropsType {
 
 interface ModalPortalProps {
   children: JSX.Element
+  className?: string
 }
 
-const ModalFactory = ({ closeModal, show, root, closeIcon }: ModalFactoryPropsType) => ({ children, ...props }: ModalPortalProps): ReactPortal | null => {
+const ModalFactory = ({ closeModal, show, root, closeIcon }: ModalFactoryPropsType) => ({ children, className }: ModalPortalProps): ReactPortal | null => {
   return (
     show
       ? ReactDOM.createPortal(
-        <ModalContent {...props} closeModal={closeModal} closeIcon={closeIcon}>
+        <ModalContent className={className} closeModal={closeModal} closeIcon={closeIcon}>
           {children}
         </ModalContent>,
         document.getElementById(root) as Element | DocumentFragment ?? document.body
